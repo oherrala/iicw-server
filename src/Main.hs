@@ -130,7 +130,7 @@ udpParser = do
   eom       <- getBool
   ack       <- getBool
   bytesLeft <- getWord16be
-  str       <- getByteString (64 - (8+8+16))
+  str       <- getByteString 60
   return $! UDPMessage eom ack bytesLeft str
 
   where
