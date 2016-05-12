@@ -22,3 +22,13 @@ executable server
                      , bytestring
                      , cereal
                      , network
+
+test-suite hlint
+  hs-source-dirs:      tests
+  main-is:             HLint.hs
+  default-language:    Haskell2010
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  default-extensions:  OverloadedStrings
+  type:                exitcode-stdio-1.0
+  build-depends:       base
+                     , hlint
