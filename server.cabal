@@ -15,8 +15,10 @@ cabal-version:       >=1.10
 executable server
   hs-source-dirs:      src
   main-is:             Main.hs
+  other-modules:       Server
   default-language:    Haskell2010
   ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  default-extensions:  OverloadedStrings
   build-depends:       base >= 4.7 && < 5
                      , attoparsec
                      , bytestring
@@ -32,3 +34,19 @@ test-suite hlint
   type:                exitcode-stdio-1.0
   build-depends:       base
                      , hlint
+
+test-suite test
+  hs-source-dirs:      tests src
+  main-is:             test.hs
+  default-language:    Haskell2010
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
+  default-extensions:  OverloadedStrings
+  type:                exitcode-stdio-1.0
+  build-depends:       base
+                     , tasty
+                     , tasty-quickcheck
+                     , attoparsec
+                     , bytestring
+                     , cereal
+                     , network
+                     , bytestring-arbitrary
